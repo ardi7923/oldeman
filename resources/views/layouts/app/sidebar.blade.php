@@ -31,8 +31,8 @@
     <span>Bulanan</span></a>
 </li>
 
-<li class="nav-item {{ Request::is('admin/crud-ajax-with-image') ? 'active' : '' }}" id="">
-  <a class="nav-link" href="{{ url('admin/crud-ajax-with-image') }}">
+<li class="nav-item {{ Request::is('admin/oldemen') ? 'active' : '' }}" id="">
+  <a class="nav-link" href="{{ url('admin/oldemen') }}">
     <i class="fas fa-fw fa-school"></i>
     <span>Oldemen</span></a>
 </li>
