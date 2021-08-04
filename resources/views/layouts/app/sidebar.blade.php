@@ -3,7 +3,7 @@
 
 <!-- Sidebar - Brand -->
 <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-  <div class="sidebar-brand-text mx-2">Service</div>
+  <div class="sidebar-brand-text mx-2">Oldemen</div>
 </a>
 
 <!-- Divider -->
@@ -22,19 +22,19 @@
 <li class="nav-item {{ Request::is('admin/crud-ajax') ? 'active' : '' }}" id="">
   <a class="nav-link" href="{{ url('admin/crud-ajax') }}">
     <i class="fas fa-fw fa-school"></i>
-    <span>Crud Ajax</span></a>
+    <span>Harian</span></a>
 </li>
 
-<li class="nav-item {{ Request::is('admin/crud-ajax-set') ? 'active' : '' }}" id="">
-  <a class="nav-link" href="{{ url('admin/crud-ajax-set') }}">
+<li class="nav-item {{ Request::is('admin/monthly') ? 'active' : '' }}" id="">
+  <a class="nav-link" href="{{ url('admin/monthly') }}">
     <i class="fas fa-fw fa-school"></i>
-    <span>Crud Ajax Set</span></a>
+    <span>Bulanan</span></a>
 </li>
 
 <li class="nav-item {{ Request::is('admin/crud-ajax-with-image') ? 'active' : '' }}" id="">
   <a class="nav-link" href="{{ url('admin/crud-ajax-with-image') }}">
     <i class="fas fa-fw fa-school"></i>
-    <span>Crud Ajax with image</span></a>
+    <span>Oldemen</span></a>
 </li>
 
 

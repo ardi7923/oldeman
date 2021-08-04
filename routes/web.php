@@ -26,5 +26,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get('user-profile', 'UserProfileController@index');
     Route::post('user-profile/update-user', 'UserProfileController@updateUser');
     Route::post('user-profile/renew-password', 'UserProfileController@renewPassword');
+
+    Route::get("monthly", "MonthlyController@index");
     
 });
