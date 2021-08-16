@@ -141,72 +141,81 @@ Data Bulanan
                     <tr>
                         <th> A </th>
                         <th> > 9 </th>
-                        <th> < 2   </th>
+                        <th>
+                            < 2 </th>
                     </tr>
                     <tr>
                         <th> B1 </th>
                         <th> 7-9 </th>
-                        <th> < 2   </th>
+                        <th>
+                            < 2 </th>
                     </tr>
                     <tr>
                         <th> B2 </th>
                         <th> 7-9 </th>
-                        <th> 2-3   </th>
+                        <th> 2-3 </th>
                     </tr>
                     <tr>
                         <th> C1 </th>
                         <th> 5-6 </th>
-                        <th> < 2   </th>
+                        <th>
+                            < 2 </th>
                     </tr>
                     <tr>
                         <th> C2 </th>
                         <th> 5-6 </th>
-                        <th> 2-3   </th>
+                        <th> 2-3 </th>
                     </tr>
                     <tr>
                         <th> C3 </th>
                         <th> 5-6 </th>
-                        <th> 4-6   </th>
+                        <th> 4-6 </th>
                     </tr>
                     <tr>
                         <th> D1 </th>
                         <th> 3-4 </th>
-                        <th> < 2   </th>
+                        <th>
+                            < 2 </th>
                     </tr>
                     <tr>
                         <th> D2 </th>
                         <th> 3-4 </th>
-                        <th> 2-3   </th>
+                        <th> 2-3 </th>
                     </tr>
                     <tr>
                         <th> D3 </th>
                         <th> 3-4 </th>
-                        <th> 4-6   </th>
+                        <th> 4-6 </th>
                     </tr>
                     <tr>
                         <th> D4 </th>
                         <th> 3-4 </th>
-                        <th> > 6   </th>
+                        <th> > 6 </th>
                     </tr>
                     <tr>
                         <th> E1 </th>
-                        <th> < 3 </th>
-                        <th> < 2   </th>
+                        <th>
+                            < 3 </th>
+                        <th>
+                            < 2 </th>
                     </tr>
                     <tr>
                         <th> E2 </th>
-                        <th> < 3 </th>
-                        <th> 2-3   </th>
+                        <th>
+                            < 3 </th>
+                        <th> 2-3 </th>
                     </tr>
                     <tr>
                         <th> E3 </th>
-                        <th> < 3 </th>
-                        <th> 4-6   </th>
+                        <th>
+                            < 3 </th>
+                        <th> 4-6 </th>
                     </tr>
                     <tr>
                         <th> E4 </th>
-                        <th> < 3 </th>
-                        <th> > 6   </th>
+                        <th>
+                            < 3 </th>
+                        <th> > 6 </th>
                     </tr>
                 </table>
             </div>
