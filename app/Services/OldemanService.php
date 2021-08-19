@@ -16,6 +16,10 @@ class OldemanService
 
     private static function getBB(int $bb)
     {
+        if($bb == 0){
+            return "E";
+        }
+        
         switch ($bb) {
             case $bb > 9:
                 return "A";

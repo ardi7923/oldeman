@@ -222,25 +222,49 @@ Data Bulanan
         </div>
     </div>
 
-    <x-modal />
+    <div class="col-md-12">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Keterangan Oldeman</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-hover table-bordered table-striped">
+                    <tr>
+                        <th> Tahun</th>
+                        <th> Keterangan</th>
+                    </tr>
+                    @foreach ($monthlies as $m)
+                    <tr>
+                        <th>{{ $m->year }}</th> 
+                        <th>{{ description_oldeman($m->oldeman) }}</th> 
+                    </tr>
 
-    @stop
+                    @endforeach
+                </table>
 
-    @section('scripts_page')
-    <!-- Page level plugins -->
-    <script src="{{ asset('assets-admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets-admin/vendor/datatables/dataTables.bootstrap4.min.js') }} "></script>
+            </div>
+        </div>
+    </div>
+</div>
+<x-modal />
 
-    <!-- Page level custom scripts -->
-    <script src="{{ asset('plugins/sweetalert2/dist/sweetalert2.min.js') }}"></script>
-    <script src="{{ asset('plugins/select2/dist/js/select2.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+@stop
 
-    @endsection
+@section('scripts_page')
+<!-- Page level plugins -->
+<script src="{{ asset('assets-admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets-admin/vendor/datatables/dataTables.bootstrap4.min.js') }} "></script>
 
-    @section('js')
+<!-- Page level custom scripts -->
+<script src="{{ asset('plugins/sweetalert2/dist/sweetalert2.min.js') }}"></script>
+<script src="{{ asset('plugins/select2/dist/js/select2.min.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
 
-    <script type="text/javascript">
+@endsection
 
-    </script>
-    @endsection
+@section('js')
+
+<script type="text/javascript">
+
+</script>
+@endsection
