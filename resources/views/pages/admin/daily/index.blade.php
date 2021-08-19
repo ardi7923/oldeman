@@ -38,7 +38,7 @@ Data Bulanan
             <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th width="50px">No</th>
+                        <th>No</th>
                         <th>Waktu</th>
                         <th>Curah Hujan</th>
 
