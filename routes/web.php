@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post('user-profile/renew-password', 'UserProfileController@renewPassword');
 
     Route::get("monthly", "MonthlyController@index");
+    Route::get("daily", "DailyController@index");
 
     Route::get("oldemen", "OldemenController@index");
     

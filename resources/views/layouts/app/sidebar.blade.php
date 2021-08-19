@@ -19,8 +19,8 @@
 <!-- Divider -->
 <hr class="sidebar-divider">
 
-<li class="nav-item {{ Request::is('admin/crud-ajax') ? 'active' : '' }}" id="">
-  <a class="nav-link" href="{{ url('admin/crud-ajax') }}">
+<li class="nav-item {{ Request::is('admin/daily') ? 'active' : '' }}" id="">
+  <a class="nav-link" href="{{ url('admin/daily?date='.now()->format('Y-m-d')) }}">
     <i class="fas fa-fw fa-school"></i>
     <span>Harian</span></a>
 </li>
