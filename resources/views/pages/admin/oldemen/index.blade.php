@@ -235,7 +235,7 @@ Data Bulanan
                     </tr>
                     @foreach ($monthlies as $m)
                     <tr>
-                        <th>{{ $m->year }}</th> 
+                        <th>{{ $m->year }} ($m->oldeman)</th> 
                         <th>{{ description_oldeman($m->oldeman) }}</th> 
                     </tr>
 
