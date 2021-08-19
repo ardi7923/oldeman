@@ -48,7 +48,7 @@ Data Bulanan
                     @forelse ($dailies as $i => $s)
                     <tr>
                         <td class="font-weight-bold">{{ $i+1 }}</td>
-                        <td class="font-weight-bold">{{ \Carbon\Carbon::parse($s->time)->format('d M Y H:s') }}</td>
+                        <td class="font-weight-bold">{{ \Carbon\Carbon::parse($s->time)->format('d M Y H:i') }}</td>
                         <td>{{ $s->rainfall }}</td>
                     </tr>
                     @empty

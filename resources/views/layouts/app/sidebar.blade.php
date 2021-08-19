@@ -21,19 +21,19 @@
 
 <li class="nav-item {{ Request::is('admin/daily') ? 'active' : '' }}" id="">
   <a class="nav-link" href="{{ url('admin/daily?date='.now()->format('Y-m-d')) }}">
-    <i class="fas fa-fw fa-school"></i>
+    <i class="fas fa-fw fa-list"></i>
     <span>Harian</span></a>
 </li>
 
 <li class="nav-item {{ Request::is('admin/monthly') ? 'active' : '' }}" id="">
   <a class="nav-link" href="{{ url('admin/monthly') }}">
-    <i class="fas fa-fw fa-school"></i>
+    <i class="fas fa-fw fa-list"></i>
     <span>Bulanan</span></a>
 </li>
 
 <li class="nav-item {{ Request::is('admin/oldemen') ? 'active' : '' }}" id="">
   <a class="nav-link" href="{{ url('admin/oldemen') }}">
-    <i class="fas fa-fw fa-school"></i>
+    <i class="fas fa-fw fa-list"></i>
     <span>Oldemen</span></a>
 </li>
 

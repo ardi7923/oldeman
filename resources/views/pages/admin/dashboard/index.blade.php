@@ -58,7 +58,7 @@ Dashboard
                 @forelse ($dailies as $i => $s)
                 <tr>
                   <td class="font-weight-bold">{{ $i+1 }}</td>
-                  <td class="font-weight-bold">{{ \Carbon\Carbon::parse($s->time)->format('d M Y H:s') }}</td>
+                  <td class="font-weight-bold">{{ \Carbon\Carbon::parse($s->time)->format('d M Y H:i') }}</td>
                   <td>{{ $s->rainfall }}</td>
                 </tr>
                 @empty
@@ -171,18 +171,18 @@ Dashboard
 
     function statistikMonthly() {
       var dataMonthly = [
-                        parseInt("{{ $statistik_monthlies->jan }}"),
-                        parseInt("{{ $statistik_monthlies->feb }}"),
-                        parseInt("{{ $statistik_monthlies->mar }}"),
-                        parseInt("{{ $statistik_monthlies->apr }}"),
-                        parseInt("{{ $statistik_monthlies->may }}"),
-                        parseInt("{{ $statistik_monthlies->jun }}"),
-                        parseInt("{{ $statistik_monthlies->jul }}"),
-                        parseInt("{{ $statistik_monthlies->ags }}"),
-                        parseInt("{{ $statistik_monthlies->sep }}"),
-                        parseInt("{{ $statistik_monthlies->oct }}"),
-                        parseInt("{{ $statistik_monthlies->nov }}"),
-                        parseInt("{{ $statistik_monthlies->des }}"),
+                        parseInt("{{ $statistik_monthlies->jan ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->feb ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->mar ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->apr ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->may ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->jun ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->jul ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->ags ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->sep ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->oct ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->nov ?? 0 }}"),
+                        parseInt("{{ $statistik_monthlies->des ?? 0}}"),
                       ];
       var labelMonthly = ["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Ags","Sep","Okt","Nov","Des"];
 
