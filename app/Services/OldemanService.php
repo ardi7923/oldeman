@@ -19,7 +19,7 @@ class OldemanService
         if($bb == 0){
             return "E";
         }
-        
+            
         switch ($bb) {
             case $bb > 9:
                 return "A";

@@ -25,7 +25,7 @@ Data Bulanan
     <div class="card-body">
         <div class="form-group row">
             <div class="col-md-2">
-                <label>Tanggal Lahir</label>
+                <label>Tanggal</label>
             </div>
             <div class="col-md-4">
                 <input class="form-control datepicker" id="date" type="text" placeholder="" value="{{ \Carbon\Carbon::parse($date)->format('Y-m-d') }}" readonly>
