@@ -71,7 +71,7 @@ class DailyController extends Controller
         if ($totalData == 0) {
             return 0;
         } else {
-            return $sumData / $totalData;
+            return $sumData;
         }
     }
 
