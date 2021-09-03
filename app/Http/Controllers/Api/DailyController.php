@@ -65,14 +65,15 @@ class DailyController extends Controller
 
     private function getAverage($year, $month)
     {
-        $totalData = Daily::whereYear("time", $year)->whereMonth("time", $month)->count();
-        $sumData = Daily::whereYear("time", $year)->whereMonth("time", $month)->sum("rainfall");
+        $count_day = Carbon::parse($year."-".$month."-01");
 
-        if ($totalData == 0) {
-            return 0;
-        } else {
-            return $sumData;
+        $month = 0;
+        for($i=1; $i <= $count_day; $i++)
+        {
+           $month += Daily::whereDate("time",$year."-".$month.($i > 9) ? $i : "0".$i)->orderBy("time","desc")->first()->rainfall;
         }
+
+        return $month;
     }
 
     private function updateMonthType($year)
