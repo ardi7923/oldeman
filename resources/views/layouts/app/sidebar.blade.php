@@ -19,6 +19,7 @@
 <!-- Divider -->
 <hr class="sidebar-divider">
 
+@if(Auth::user()->role == "admin")
 <li class="nav-item {{ Request::is('admin/daily') ? 'active' : '' }}" id="">
   <a class="nav-link" href="{{ url('admin/daily?date='.now()->format('Y-m-d')) }}">
     <i class="fas fa-fw fa-list"></i>
@@ -30,6 +31,7 @@
     <i class="fas fa-fw fa-list"></i>
     <span>Bulanan</span></a>
 </li>
+@endif
 
 <li class="nav-item {{ Request::is('admin/oldemen') ? 'active' : '' }}" id="">
   <a class="nav-link" href="{{ url('admin/oldemen') }}">
