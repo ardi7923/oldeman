@@ -10,8 +10,11 @@ Data Bulanan
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/sweetalert2/dist/sweetalert2.min.css') }}">
 <link href="{{ asset('plugins/select2/dist/css/select2.min.css') }}" rel="stylesheet">
 <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-
-
+<style>
+.white{
+    color:white;
+}
+</style>
 @endsection
 
 @section('content')
@@ -33,6 +36,8 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <th> {{ $m->year }} </th>
                                 @endforeach
+                                <th class="bg-danger white"> Prediksi <br> 2021 </th>
+                                <th class="bg-danger white"> Prediksi <br> 2022 </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,11 +46,17 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->jan }} </td>
                                 @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->jan }} </td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th>Februari</th>
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->feb }} </td>
+                                @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->feb }} </td>
                                 @endforeach
                             </tr>
                             <tr>
@@ -53,11 +64,17 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->mar }} </td>
                                 @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->mar }} </td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th>April</th>
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->apr }} </td>
+                                @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->apr }} </td>
                                 @endforeach
                             </tr>
                             <tr>
@@ -65,11 +82,17 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->may }} </td>
                                 @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->may }} </td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th>Juni</th>
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->jun }} </td>
+                                @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->jun }} </td>
                                 @endforeach
                             </tr>
                             <tr>
@@ -77,11 +100,17 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->jul }} </td>
                                 @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->jul }} </td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th>Agustus</th>
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->ags }} </td>
+                                @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->ags }} </td>
                                 @endforeach
                             </tr>
                             <tr>
@@ -89,11 +118,26 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->sep }} </td>
                                 @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->sep }} </td>
+                                @endforeach
+                            </tr>
+                            <tr>
+                                <th>Oktober</th>
+                                @foreach ($monthlies as $m)
+                                <td> {{ $m->oct }} </td>
+                                @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->oct }} </td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th>November</th>
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->nov }} </td>
+                                @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->oct }} </td>
                                 @endforeach
                             </tr>
                             <tr>
@@ -101,11 +145,17 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->des }} </td>
                                 @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->des }} </td>
+                                @endforeach
                             </tr>
                             <tr>
                                 <th>Jumlah Bulan Basah</th>
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->bb }} </td>
+                                @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->bb }} </td>
                                 @endforeach
                             </tr>
                             <tr>
@@ -113,11 +163,18 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->bk }} </td>
                                 @endforeach
+                                @foreach ($predictions as $p)
+                                <td class="bg-danger white"> {{ $p->bk }} </td>
+                                @endforeach
                             </tr>
                             <tr style="background-color: #2ecc71; color: white;">
                                 <th>Hasil Klasifikasi Iklim (Oldeman)</th>
                                 @foreach ($monthlies as $m)
                                 <th> {{ $m->oldeman }} </th>
+                                @endforeach
+
+                                @foreach ($predictions as $p)
+                                <th class="bg-danger white"> {{ $p->oldeman }} </th>
                                 @endforeach
                             </tr>
                         </tbody>
@@ -238,7 +295,13 @@ Data Bulanan
                         <th>{{ $m->year }} ({{ $m->oldeman }})</th> 
                         <th>{{ description_oldeman($m->oldeman) }}</th> 
                     </tr>
+                    @endforeach
 
+                    @foreach ($predictions as $p)
+                    <tr>
+                        <th class="bg-danger white"> Prediksi {{ $p->year }} ({{ $p->oldeman }})</th> 
+                        <th class="bg-danger white">{{ description_oldeman($p->oldeman) }}</th> 
+                    </tr>
                     @endforeach
                 </table>
 
