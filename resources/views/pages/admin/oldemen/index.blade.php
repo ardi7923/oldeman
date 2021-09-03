@@ -44,109 +44,109 @@ Data Bulanan
                             <tr>
                                 <th>Januari</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->jan }} </td>
+                                <td> {{ round($m->jan,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->jan }} </td>
+                                <td class="bg-danger white"> {{ round($p->jan,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Februari</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->feb }} </td>
+                                <td> {{ round($m->feb,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->feb }} </td>
+                                <td class="bg-danger white"> {{ round($p->feb,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Maret</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->mar }} </td>
+                                <td> {{ round($m->mar,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->mar }} </td>
+                                <td class="bg-danger white"> {{ round($p->mar,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>April</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->apr }} </td>
+                                <td> {{ round($m->apr,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->apr }} </td>
+                                <td class="bg-danger white"> {{ round($p->apr,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Mei</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->may }} </td>
+                                <td> {{ round($m->may,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->may }} </td>
+                                <td class="bg-danger white"> {{ round($p->may,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Juni</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->jun }} </td>
+                                <td> {{ round($m->jun,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->jun }} </td>
+                                <td class="bg-danger white"> {{ round($p->jun,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Juli</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->jul }} </td>
+                                <td> {{ round($m->jul,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->jul }} </td>
+                                <td class="bg-danger white"> {{ round($p->jul,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Agustus</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->ags }} </td>
+                                <td> {{ round($m->ags,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->ags }} </td>
+                                <td class="bg-danger white"> {{ round($p->ags,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>September</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->sep }} </td>
+                                <td> {{ round($m->sep,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->sep }} </td>
+                                <td class="bg-danger white"> {{ round($p->sep,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Oktober</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->oct }} </td>
+                                <td> {{ round($m->oct,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->oct }} </td>
+                                <td class="bg-danger white"> {{ round($p->oct,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>November</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->nov }} </td>
+                                <td> {{ round($m->nov,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->oct }} </td>
+                                <td class="bg-danger white"> {{ round($p->oct,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
                                 <th>Desember</th>
                                 @foreach ($monthlies as $m)
-                                <td> {{ $m->des }} </td>
+                                <td> {{ round($m->des,2) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ $p->des }} </td>
+                                <td class="bg-danger white"> {{ round($p->des,2) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
