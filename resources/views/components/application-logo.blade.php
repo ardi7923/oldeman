@@ -1,1 +1,1 @@
-<img src="{{ asset('stmik-akba.jpg') }}">
+<img src="{{ asset('logo.png') }}" style="width: 220px;">

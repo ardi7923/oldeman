@@ -48,18 +48,18 @@ Data Bulanan
                     <tr>
                         <td class="font-weight-bold">{{ $i+1 }}</td>
                         <td class="font-weight-bold">{{ $m->year }}</td>
-                        <td>{{ $m->jan }}</td>
-                        <td>{{ $m->feb }}</td>
-                        <td>{{ $m->mar }}</td>
-                        <td>{{ $m->apr }}</td>
-                        <td>{{ $m->may }}</td>
-                        <td>{{ $m->jun }}</td>
-                        <td>{{ $m->jul }}</td>
-                        <td>{{ $m->ags }}</td>
-                        <td>{{ $m->sep }}</td>
-                        <td>{{ $m->oct }}</td>
-                        <td>{{ $m->nov }}</td>
-                        <td>{{ $m->des }}</td>
+                        <td>{{ round($m->jan,0) }}</td>
+                        <td>{{ round($m->feb,0) }}</td>
+                        <td>{{ round($m->mar,0) }}</td>
+                        <td>{{ round($m->apr,0) }}</td>
+                        <td>{{ round($m->may,0) }}</td>
+                        <td>{{ round($m->jun,0) }}</td>
+                        <td>{{ round($m->jul,0) }}</td>
+                        <td>{{ round($m->ags,0) }}</td>
+                        <td>{{ round($m->sep,0) }}</td>
+                        <td>{{ round($m->oct,0) }}</td>
+                        <td>{{ round($m->nov,0) }}</td>
+                        <td>{{ round($m->des,0) }}</td>
                     </tr>
                     @endforeach
                 </tbody>
