@@ -31,5 +31,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get("daily", "DailyController@index");
 
     Route::get("oldemen", "OldemenController@index");
+    Route::get("prediction","OldemenController@predictionForm");
+    Route::post("prediction","OldemenController@prediction");
+
+    Route::get("delete-prediction","OldemenController@deletePredictionForm");
+    Route::post("delete-prediction","OldemenController@deletePrediction");
     
 });

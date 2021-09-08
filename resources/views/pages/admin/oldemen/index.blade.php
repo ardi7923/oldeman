@@ -29,6 +29,9 @@ Data Bulanan
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                    <button class="btn btn-primary show-form" data-url="{{ url('admin/prediction') }}"><i class="fa fa-calculator"></i> Hitung Prediksi</button>
+                    <button class="btn btn-danger show-form" data-url="{{ url('admin/delete-prediction') }}"><i class="fa fa-trash"></i> Hapus Prediksi</button>
+                    <br><br>
                     <table class="table table-bordered table-hover" id="myTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
@@ -36,8 +39,9 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <th> {{ $m->year }} </th>
                                 @endforeach
-                                <th class="bg-danger white"> Prediksi <br> 2021 </th>
-                                <th class="bg-danger white"> Prediksi <br> 2022 </th>
+                                @foreach ($predictions as $p)
+                                 <th class="bg-danger white"> Prediksi <br> {{ $p->year }} </th>
+                                @endforeach
                             </tr>
                         </thead>
                         <tbody>
@@ -328,6 +332,6 @@ Data Bulanan
 @section('js')
 
 <script type="text/javascript">
-
+    $(".show-form").click(showForm);
 </script>
 @endsection
