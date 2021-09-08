@@ -71,3 +71,48 @@ if (!function_exists('month_number')) {
         }
     }
 }
+
+if (!function_exists('month_name')) {
+
+    function month_name($value)
+    {
+        switch ($value) {
+            case "01":
+                return "jan";
+                break;
+            case "02":
+                return "feb";
+                break;
+            case "03":
+                return "mar";
+                break;
+            case "04":
+                return "apr";
+                break;
+            case "05":
+                return "may";
+                break;
+            case "06":
+                return "jun";
+                break;
+            case "07":
+                return "jul";
+                break;
+            case "08":
+                return "ags";
+                break;
+            case "09":
+                return "sep";
+                break;
+            case "10":
+                return "oct";
+                break;
+            case "11":
+                return "nov";
+                break;
+            case "12":
+                return "des";
+                break;
+        }
+    }
+}

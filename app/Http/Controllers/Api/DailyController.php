@@ -22,38 +22,17 @@ class DailyController extends Controller
 
             $getYear = Carbon::parse($request->time)->format("Y");
             $cekData = Monthly::where("year", $getYear)->first();
+            $getMonth = Carbon::parse($request->time)->format("m");
 
             if ($cekData) {
                 Monthly::where("year", $getYear)->update([
-                    "jan" => $this->getAverage($getYear, "01"),
-                    "feb" => $this->getAverage($getYear, "02"),
-                    "mar" => $this->getAverage($getYear, "03"),
-                    "apr" => $this->getAverage($getYear, "04"),
-                    "may" => $this->getAverage($getYear, "05"),
-                    "jun" => $this->getAverage($getYear, "06"),
-                    "jul" => $this->getAverage($getYear, "07"),
-                    "ags" => $this->getAverage($getYear, "08"),
-                    "sep" => $this->getAverage($getYear, "09"),
-                    "oct" => $this->getAverage($getYear, "10"),
-                    "nov" => $this->getAverage($getYear, "11"),
-                    "des" => $this->getAverage($getYear, "12"),
+                    month_name($getMonth) => $this->getAverage($getYear, $getMonth),
                 ]);
                 $this->updateMonthType($getYear);
             } else {
                 Monthly::create([
                     "year" => $getYear,
-                    "jan" => $this->getAverage($getYear, "01"),
-                    "feb" => $this->getAverage($getYear, "02"),
-                    "mar" => $this->getAverage($getYear, "03"),
-                    "apr" => $this->getAverage($getYear, "04"),
-                    "may" => $this->getAverage($getYear, "05"),
-                    "jun" => $this->getAverage($getYear, "06"),
-                    "jul" => $this->getAverage($getYear, "07"),
-                    "ags" => $this->getAverage($getYear, "08"),
-                    "sep" => $this->getAverage($getYear, "09"),
-                    "oct" => $this->getAverage($getYear, "10"),
-                    "nov" => $this->getAverage($getYear, "11"),
-                    "des" => $this->getAverage($getYear, "12"),
+                    month_name($getMonth) => $this->getAverage($getYear, $getMonth),
                 ]);
                 $this->updateMonthType($getYear);
             }
@@ -65,15 +44,15 @@ class DailyController extends Controller
 
     private function getAverage($year, $month)
     {
-        $count_day = Carbon::parse($year."-".$month."-01");
-
-        $month = 0;
+        
+        $count_day = Carbon::parse($year."-".$month."-01")->daysInMonth;
+        $monthVal = 0; 
         for($i=1; $i <= $count_day; $i++)
         {
-           $month += Daily::whereDate("time",$year."-".$month.($i > 9) ? $i : "0".$i)->orderBy("time","desc")->first()->rainfall;
+            $monthVal += Daily::whereDate("time",Carbon::parse($year."-".$month."-". $i )->format("Y-m-d"))->orderBy("time","desc")->first()->rainfall ?? 0;
         }
 
-        return $month;
+        return $monthVal;
     }
 
     private function updateMonthType($year)
