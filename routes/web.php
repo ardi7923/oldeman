@@ -37,4 +37,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::get("delete-prediction","OldemenController@deletePredictionForm");
     Route::post("delete-prediction","OldemenController@deletePrediction");
     
+    
+    
 });
