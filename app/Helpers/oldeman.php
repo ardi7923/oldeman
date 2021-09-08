@@ -25,3 +25,49 @@ if (!function_exists('description_oldeman')) {
         }
     }
 }
+
+
+if (!function_exists('month_number')) {
+
+    function month_number($value)
+    {
+        switch ($value) {
+            case "jan":
+                return "01";
+                break;
+            case "feb":
+                return "02";
+                break;
+            case "mar":
+                return "03";
+                break;
+            case "apr":
+                return "04";
+                break;
+            case "may":
+                return "05";
+                break;
+            case "jun":
+                return "06";
+                break;
+            case "jul":
+                return "07";
+                break;
+            case "ags":
+                return "08";
+                break;
+            case "sep":
+                return "09";
+                break;
+            case "oct":
+                return "10";
+                break;
+            case "nov":
+                return "11";
+                break;
+            case "des":
+                return "12";
+                break;
+        }
+    }
+}

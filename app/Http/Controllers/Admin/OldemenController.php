@@ -7,13 +7,25 @@ use App\Models\Monthly;
 use App\Models\Prediction;
 use App\Services\OldemanService;
 use Illuminate\Http\Request;
-use Prophecy\Exception\Prediction\PredictionException;
+use App\Services\PredictionService;
 
 class OldemenController extends Controller
 {
+    private $jan,
+        $feb,
+        $mar,
+        $apr,
+        $may,
+        $jun,
+        $jul,
+        $ags,
+        $sep,
+        $oct,
+        $nov,
+        $des;
+
     public function index()
     {
-
         $monthlies = Monthly::orderBy("year")->get();
 
         foreach ($monthlies as $m) {
@@ -37,13 +49,13 @@ class OldemenController extends Controller
     public function deletePredictionForm()
     {
         $predictions = Prediction::all();
-        return renderToJson("pages.admin.oldemen.delete-prediction",compact("predictions"));
+        return renderToJson("pages.admin.oldemen.delete-prediction", compact("predictions"));
     }
 
     public function deletePrediction(Request $request)
     {
         try {
-            Prediction::where("year",$request->year)->delete();
+            Prediction::where("year", $request->year)->delete();
             return back();
         } catch (\Exception $e) {
             dd($e);
@@ -55,40 +67,49 @@ class OldemenController extends Controller
         $year = $request->year;
         $prediction = Prediction::where("year", $request->year)->count();
         if ($prediction) {
-            // dd($this->getQueryMonth($year,"des"));
-            Prediction::where("year",$year)->update([
+
+            $arr = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "ags", "sep", "oct", "nov", "des"];
+            foreach ($arr as $a) {
+                $this->$a = $this->getAverage($year, $a);
+            }
+
+            Prediction::where("year", $year)->update([
                 "year" => $request->year,
-                "jan" => $this->getPrediction($year, "jan"),
-                "feb" => $this->getPrediction($year, "feb"),
-                "mar" => $this->getPrediction($year, "mar"),
-                "apr" => $this->getPrediction($year, "apr"),
-                "may" => $this->getPrediction($year, "may"),
-                "jun" => $this->getPrediction($year, "jun"),
-                "jul" => $this->getPrediction($year, "jul"),
-                "ags" => $this->getPrediction($year, "ags"),
-                "sep" => $this->getPrediction($year, "sep"),
-                "oct" => $this->getPrediction($year, "oct"),
-                "nov" => $this->getPrediction($year, "nov"),
-                "des" => $this->getPrediction($year, "des"),
+                "jan" => $this->jan,
+                "feb" => $this->feb,
+                "mar" => $this->mar,
+                "apr" => $this->apr,
+                "may" => $this->may,
+                "jun" => $this->jun,
+                "jul" => $this->jul,
+                "ags" => $this->ags,
+                "sep" => $this->sep,
+                "oct" => $this->oct,
+                "nov" => $this->nov,
+                "des" => $this->des,
             ]);
             $this->updateMonthTypePrediction($request->year);
             return back();
         } else {
-            // dd($this->cekNull($this->getMonthPrediction($year, "des"), $year));
+            $arr = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "ags", "sep", "oct", "nov", "des"];
+            foreach ($arr as $a) {
+                $this->$a = $this->getAverage($year, $a);
+            }
+
             Prediction::create([
                 "year" => $request->year,
-                "jan" => $this->getPrediction($year, "jan"),
-                "feb" => $this->getPrediction($year, "feb"),
-                "mar" => $this->getPrediction($year, "mar"),
-                "apr" => $this->getPrediction($year, "apr"),
-                "may" => $this->getPrediction($year, "may"),
-                "jun" => $this->getPrediction($year, "jun"),
-                "jul" => $this->getPrediction($year, "jul"),
-                "ags" => $this->getPrediction($year, "ags"),
-                "sep" => $this->getPrediction($year, "sep"),
-                "oct" => $this->getPrediction($year, "oct"),
-                "nov" => $this->getPrediction($year, "nov"),
-                "des" => $this->getPrediction($year, "des"),
+                "jan" => $this->jan,
+                "feb" => $this->feb,
+                "mar" => $this->mar,
+                "apr" => $this->apr,
+                "may" => $this->may,
+                "jun" => $this->jun,
+                "jul" => $this->jul,
+                "ags" => $this->ags,
+                "sep" => $this->sep,
+                "oct" => $this->oct,
+                "nov" => $this->nov,
+                "des" => $this->des,
             ]);
 
             $this->updateMonthTypePrediction($request->year);
@@ -96,28 +117,14 @@ class OldemenController extends Controller
         }
     }
 
-    public function getPrediction($year, $month)
+    public function getAverage($year, $month)
     {
-        return array_sum($this->cekNull($this->getMonthPrediction($year, $month), $year))/3;
+        return array_sum($this->getMonthPrediction($year, $month)) / 3;
     }
-
-    public function cekNull($array, $year)
-    {
-        $tes = [];
-
-        foreach ($array as $key => $a) {
-            if ($a == 0) {
-                $tes[$key] = $this->getPrediction($year, $key);
-            } else {
-                $tes[$key] = $a;
-            }
-        }
-        return $tes;
-    }
-
 
     public function getMonthPrediction($year, $month)
     {
+
 
         switch ($month) {
             case "jan":
@@ -129,84 +136,96 @@ class OldemenController extends Controller
             case "feb":
                 $month3 = $this->getQueryMonth($year - 1, "nov");
                 $month2 = $this->getQueryMonth($year - 1, "des");
-                $month1 = $this->getQueryMonth($year, "jan");
+                $month1 = $this->getQueryMonth($year, "jan") ?? $this->jan;
                 return ["nov" => $month3, "des" => $month2, "jan" => $month1];
                 break;
             case "mar":
                 $month3 = $this->getQueryMonth($year - 1, "des");
-                $month2 = $this->getQueryMonth($year, "jan");
-                $month1 = $this->getQueryMonth($year, "feb");
+                $month2 = $this->getQueryMonth($year, "jan") ?? $this->jan;
+                $month1 = $this->getQueryMonth($year, "feb") ?? $this->feb;
                 return ["des" => $month3, "jan" => $month2, "feb" => $month1];
                 break;
             case "apr":
-                $month3 = $this->getQueryMonth($year, "jan");
-                $month2 = $this->getQueryMonth($year, "feb");
-                $month1 = $this->getQueryMonth($year, "mar");
+                $month3 = $this->getQueryMonth($year, "jan") ?? $this->jan;
+                $month2 = $this->getQueryMonth($year, "feb") ?? $this->feb;
+                $month1 = $this->getQueryMonth($year, "mar") ?? $this->mar;
                 return ["jan" => $month3, "feb" => $month2, "mar" => $month1];
                 break;
             case "may":
-                $month3 = $this->getQueryMonth($year, "feb");
-                $month2 = $this->getQueryMonth($year, "mar");
-                $month1 = $this->getQueryMonth($year, "apr");
+                $month3 = $this->getQueryMonth($year, "feb") ?? $this->feb;
+                $month2 = $this->getQueryMonth($year, "mar") ?? $this->mar;
+                $month1 = $this->getQueryMonth($year, "apr") ?? $this->apr;
                 return ["feb" => $month3, "mar" => $month2, "apr" => $month1];
                 break;
             case "jun":
-                $month3 = $this->getQueryMonth($year, "mar");
-                $month2 = $this->getQueryMonth($year, "apr");
-                $month1 = $this->getQueryMonth($year, "may");
+                $month3 = $this->getQueryMonth($year, "mar") ?? $this->mar;
+                $month2 = $this->getQueryMonth($year, "apr") ?? $this->apr;
+                $month1 = $this->getQueryMonth($year, "may") ?? $this->may;
                 return ["mar" => $month3, "apr" => $month2, "may" => $month1];
                 break;
             case "jul":
-                $month3 = $this->getQueryMonth($year, "apr");
-                $month2 = $this->getQueryMonth($year, "may");
-                $month1 = $this->getQueryMonth($year, "jun");
+                $month3 = $this->getQueryMonth($year, "apr") ?? $this->apr;
+                $month2 = $this->getQueryMonth($year, "may") ?? $this->may;
+                $month1 = $this->getQueryMonth($year, "jun") ?? $this->jun;
                 return ["apr" => $month3, "may" => $month2, "jun" => $month1];
                 break;
             case "ags":
-                $month3 = $this->getQueryMonth($year, "may");
-                $month2 = $this->getQueryMonth($year, "jun");
-                $month1 = $this->getQueryMonth($year, "jul");
+                $month3 = $this->getQueryMonth($year, "may") ?? $this->may;
+                $month2 = $this->getQueryMonth($year, "jun") ?? $this->jun;
+                $month1 = $this->getQueryMonth($year, "jul") ?? $this->jul;
                 return ["may" => $month3, "jun" => $month2, "jul" => $month1];
                 break;
             case "sep":
-                $month3 = $this->getQueryMonth($year, "jun");
-                $month2 = $this->getQueryMonth($year, "jul");
-                $month1 = $this->getQueryMonth($year, "ags");
+                $month3 = $this->getQueryMonth($year, "jun") ?? $this->jun;
+                $month2 = $this->getQueryMonth($year, "jul") ?? $this->jul;
+                $month1 = $this->getQueryMonth($year, "ags") ?? $this->ags;
                 return ["jun" => $month3, "jul" => $month2, "ags" => $month1];
                 break;
             case "oct":
-                $month3 = $this->getQueryMonth($year, "jul");
-                $month2 = $this->getQueryMonth($year, "ags");
-                $month1 = $this->getQueryMonth($year, "sep");
+                $month3 = $this->getQueryMonth($year, "jul") ?? $this->jul;
+                $month2 = $this->getQueryMonth($year, "ags") ?? $this->ags;
+                $month1 = $this->getQueryMonth($year, "sep") ?? $this->sep;
                 return ["jul" => $month3, "ags" => $month2, "sep" => $month1];
                 break;
             case "nov":
-                $month3 = $this->getQueryMonth($year, "ags");
-                $month2 = $this->getQueryMonth($year, "sep");
-                $month1 = $this->getQueryMonth($year, "oct");
+                $month3 = $this->getQueryMonth($year, "ags") ?? $this->ags;
+                $month2 = $this->getQueryMonth($year, "sep") ?? $this->sep;
+                $month1 = $this->getQueryMonth($year, "oct") ?? $this->oct;
                 return ["ags" => $month3, "sep" => $month2, "oct" => $month1];
                 break;
             case "des":
-                $month3 = $this->getQueryMonth($year, "sep");
-                $month2 = $this->getQueryMonth($year, "oct");
-                $month1 = $this->getQueryMonth($year, "nov");
+                $month3 = $this->getQueryMonth($year, "sep") ?? $this->sep;
+                $month2 = $this->getQueryMonth($year, "oct") ?? $this->oct;
+                $month1 = $this->getQueryMonth($year, "nov") ?? $this->nov;
                 return ["sep" => $month3, "oct" => $month2, "nov" => $month1];
                 break;
         }
     }
 
+
+
     public function getQueryMonth($year, $month)
     {
         $prediction = Prediction::where("year", $year)->first() ?? null;
         $rainfall   = Monthly::where("year", $year)->first() ?? null;
-        
-        if($rainfall){
 
+        $monthRequest = $year . '-' . month_number($month);
+
+
+
+        if ($rainfall != null) {
+
+            if ($monthRequest >= now()->format("Y-m")) {
+                return $prediction->$month ?? null;
+            } else {
                 return $rainfall->$month;
-            
-        }else{
-  
-            return $prediction->$month ?? 0;
+            }
+
+        } else if ($prediction != null) {
+            dd("prediction");
+            return $prediction->$month;
+        } else {
+            return null;
         }
     }
 

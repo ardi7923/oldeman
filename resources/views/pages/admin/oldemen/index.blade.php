@@ -141,7 +141,7 @@ Data Bulanan
                                 <td> {{ round($m->nov,0) }} </td>
                                 @endforeach
                                 @foreach ($predictions as $p)
-                                <td class="bg-danger white"> {{ round($p->oct,0) }} </td>
+                                <td class="bg-danger white"> {{ round($p->nov,0) }} </td>
                                 @endforeach
                             </tr>
                             <tr>
