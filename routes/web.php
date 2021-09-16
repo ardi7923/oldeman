@@ -38,5 +38,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     Route::post("delete-prediction","OldemenController@deletePrediction");
     
     
+    Route::resource("rainfall", "RainfallController");
+    
     
 });
