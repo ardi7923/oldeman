@@ -13,6 +13,10 @@
             <div class="col-sm-10">
                 <select class="form-control" name="year" required>
                     <option disabled selected value="">--PILIH--</option>
+                    <option> 2017 </option>
+                    <option> 2018 </option>
+                    <option> 2019 </option>
+                    <option> 2020 </option>
                     @for ($i = 0; $i <= 5; $i++)
                         <option> {{ (now()->format("Y")) + $i }} </option>
                     @endfor

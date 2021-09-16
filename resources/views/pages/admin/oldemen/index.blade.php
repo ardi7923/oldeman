@@ -39,7 +39,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <th> {{ $m->year }} </th>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                  <th class="bg-danger white"> Prediksi <br> {{ $p->year }} </th>
                                 @endforeach
                             </tr>
@@ -50,7 +50,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->jan,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->jan,0) }} </td>
                                 @endforeach
                             </tr>
@@ -59,7 +59,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->feb,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->feb,0) }} </td>
                                 @endforeach
                             </tr>
@@ -68,7 +68,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->mar,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->mar,0) }} </td>
                                 @endforeach
                             </tr>
@@ -77,7 +77,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->apr,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->apr,0) }} </td>
                                 @endforeach
                             </tr>
@@ -86,7 +86,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->may,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->may,0) }} </td>
                                 @endforeach
                             </tr>
@@ -95,7 +95,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->jun,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->jun,0) }} </td>
                                 @endforeach
                             </tr>
@@ -104,7 +104,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->jul,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->jul,0) }} </td>
                                 @endforeach
                             </tr>
@@ -113,7 +113,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->ags,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->ags,0) }} </td>
                                 @endforeach
                             </tr>
@@ -122,7 +122,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->sep,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->sep,0) }} </td>
                                 @endforeach
                             </tr>
@@ -131,7 +131,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->oct,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->oct,0) }} </td>
                                 @endforeach
                             </tr>
@@ -140,7 +140,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->nov,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->nov,0) }} </td>
                                 @endforeach
                             </tr>
@@ -149,7 +149,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ round($m->des,0) }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ round($p->des,0) }} </td>
                                 @endforeach
                             </tr>
@@ -158,7 +158,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->bb }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ $p->bb }} </td>
                                 @endforeach
                             </tr>
@@ -167,7 +167,7 @@ Data Bulanan
                                 @foreach ($monthlies as $m)
                                 <td> {{ $m->bk }} </td>
                                 @endforeach
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <td class="bg-danger white"> {{ $p->bk }} </td>
                                 @endforeach
                             </tr>
@@ -177,7 +177,7 @@ Data Bulanan
                                 <th> {{ $m->oldeman }} </th>
                                 @endforeach
 
-                                @foreach ($predictions as $p)
+                                @foreach ($predictions->sortBy("year") as $p)
                                 <th class="bg-danger white"> {{ $p->oldeman }} </th>
                                 @endforeach
                             </tr>
@@ -301,7 +301,7 @@ Data Bulanan
                     </tr>
                     @endforeach
 
-                    @foreach ($predictions as $p)
+                    @foreach ($predictions->sortBy("year") as $p)
                     <tr>
                         <th class="bg-danger white"> Prediksi {{ $p->year }} ({{ $p->oldeman }})</th> 
                         <th class="bg-danger white">{{ description_oldeman($p->oldeman) }}</th> 
