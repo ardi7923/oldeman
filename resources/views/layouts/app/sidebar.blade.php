@@ -31,6 +31,8 @@
     <i class="fas fa-fw fa-list"></i>
     <span>Bulanan</span></a>
 </li>
+
+
 @endif
 
 <li class="nav-item {{ Request::is('admin/oldemen') ? 'active' : '' }}" id="">
@@ -39,7 +41,19 @@
     <span>Oldemen</span></a>
 </li>
 
+@if(Auth::user()->role == "admin")
+<li class="nav-item {{ Request::is('admin/rainfall') ? 'active' : '' }}" id="">
+  <a class="nav-link" href="{{ url('admin/rainfall') }}">
+    <i class="fas fa-fw fa-list"></i>
+    <span>Curah Hujan</span></a>
+</li>
 
+<li class="nav-item {{ Request::is('admin/oldemen-rainfall') ? 'active' : '' }}" id="">
+  <a class="nav-link" href="{{ url('admin/oldemen-rainfall') }}">
+    <i class="fas fa-fw fa-list"></i>
+    <span>Oldemen Curah Hujan</span></a>
+</li>
+@endif
 
 <!-- Divider -->
 <hr class="sidebar-divider d-none d-md-block">

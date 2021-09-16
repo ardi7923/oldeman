@@ -40,5 +40,12 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'namespace' => 'Admin
     
     Route::resource("rainfall", "RainfallController");
     
+    Route::get("oldemen-rainfall", "OldemenRainfallController@index");
+
+    Route::get("prediction-rainfall","OldemenRainfallController@predictionForm");
+    Route::post("prediction-rainfall","OldemenRainfallController@prediction");
+
+    Route::get("delete-prediction-rainfall","OldemenRainfallController@deletePredictionForm");
+    Route::post("delete-prediction-rainfall","OldemenRainfallController@deletePrediction");
     
 });
